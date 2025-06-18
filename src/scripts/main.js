@@ -10,8 +10,15 @@ for (const input of inputs) {
   const inputId = input.getAttribute('id');
 
   label.classList.add('field-label');
-  label.setAttribute('for', inputId);
-  input.setAttribute('placeholder', inputNameCapitalized);
-  label.textContent = inputNameCapitalized;
+  
+  if (inputId) {
+    label.setAttribute('for', inputId);
+  }
+
+  if (inputName) {
+    input.setAttribute('placeholder', inputNameCapitalized);
+    label.textContent = inputNameCapitalized;
+  }
+
   input.insertAdjacentElement("beforebegin", label);
 }
